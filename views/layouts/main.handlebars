@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Members app</title>
+</head>
+<body>
+    <div class="content">
+        <div class="container mt-4">
+            <h1 class="text-center mb-3">{{title}}</h1>
+            <form action="/api/members" method="POST" class="mb-4">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" class="form-controll">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" class="form-controll">
+                </div>
+                <input type="submit" value="Add Member"class="btn btn-primary btn-block" >
+            </form>
+            <h4>Members</h4>
+            <ul class="list-group">
+                {{#each members}}
+                    <li class="list-group-item">{{this.name}}: {{this.email}}</li>
+                {{/each}}
+            </ul>
+            <a href="/api/members" class="btn btn-light mt-4">Visit API</a>
+        </div>
+    </div>
+</body>
+</html>
